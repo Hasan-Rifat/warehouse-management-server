@@ -48,10 +48,8 @@ async function run() {
     app.put("/car/:id", async (req, res) => {
       const id = req.params.id;
       const car = req.body;
-      console.log("from update api", car);
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
-      //   console.log("from put method", id);
       const updateDoc = {
         $set: {
           productName: car.productName,

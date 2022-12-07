@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const { dbConnect } = require("./utils/dbConnect");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
@@ -27,6 +28,8 @@ function verifyJWT(req, res, next) {
   });
   // console.log("inside verifyJWT", authHeader);
 }
+
+dbConnect();
 
 const uri = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASS}@cluster0.oter1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {

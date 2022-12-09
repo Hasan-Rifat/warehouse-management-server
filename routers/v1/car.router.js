@@ -3,6 +3,6 @@ const api = require("../../controllers/car.controllers");
 const router = express.Router();
 
 router.route("/").post(api.addNewCar);
-router.route("/:id").get(api.getCar).put(api.carUpdate);
+router.route("/:id").get(api.getCar).put(api.carUpdate).delete(api.deleteCar);
 
 module.exports = router;
